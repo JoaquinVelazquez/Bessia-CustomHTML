@@ -1,0 +1,366 @@
+<div class="header-wrapper header-wrapper--fixed {{headerAdditionalClasses}}" data-ms-theme="tools">
+    {{#if flash.enabled}} {{> components/flash}} {{/if}}
+    {{> components/cookieDisclaimer}}
+    <header role="banner" class="header" itemtype="http://schema.org/Store" itemid="#this" itemscope="" class="nav-tools">
+        <div class="nav-tools-header__top">
+            <div class="nav-tools-header__top-bound">
+                <a href="/" id="logo-wrapper" class="nav-tools__logo-wrapper">
+                    {{#if logo}}
+                    <img id="image-logo" src="{{logo}}" alt="{{name}}" />
+                    {{else}}
+                    <span class="header--custom-text">
+                        {{name}}
+                    </span>
+                    {{/if}}
+                </a>
+                <!-- Search box -->
+                <div class="nav-tools-header__top-bound-separation">
+                    <div class="top-separation">
+                        <label class="nav-tools-header__searchbox-mock" for="search-box-toggle"> </label>
+                        <input type="checkbox" name="search-box-toggle" id="search-box-toggle" />
+                        <div class="nav-tools-header__searchbox {{hasInfoClass}}">
+                            {{#if headerMessage}}
+                            <div class="header__searchbox-info header--custom-text">
+                                {{{headerMessage}}}
+                            </div>
+                            <!-- /.header__searchbox-info header--custom-text -->
+                            {{/if}}
+                            <form class="search-box-container" id="search-form" action="{{home_url}}">
+                                <div class="close"></div>
+                                <input type="text" id="search-input" name="search-box-tools" placeholder="{{i18n.placeholder}}" />
+                                <button type="submit" class="search-button">
+                                    {{> tools/views/partials/search}}
+                                </button>
+                                <!-- /.search-button -->
+                            </form>
+                        </div>
+                        <!-- Icons contact/cart -->
+                        <nav class="nav-tools-header__icons">
+                            {{#if contact.href}}
+                            <a href="{{contact.href}}" class="contact-button" rel="nofollow">
+                                {{> tools/views/partials/contact}}
+                            </a>
+                            {{/if}}
+                            {{#if cart.href}}
+                            <a href="{{cart.href}}" title="Carrito" class="cart-button" id="nav-cart">
+                                {{> tools/views/partials/cart-badge}}
+                                {{> tools/views/partials/cart}}
+                            </a>
+                            {{/if}}
+                            <!-- Required for menu-responsive widget -->
+                            <input type="checkbox" id="mobile-categories-menu-switch" name="nav-tools-header__menu-switch" />
+                            <label for="mobile-categories-menu-switch" id="hamburguer-menu">
+                                <span class="nav-header__hamburger"></span>
+                                <span class="nav-header__hamburger"></span>
+                                <span class="nav-header__hamburger"></span>
+                            </label>
+                            <!-- Mobile categories menu has to be a sibling of switcher-->
+                            <ul class="nav-list nav-list--vertical  "
+                                itemtype="http://schema.org/SiteNavigationElement" itemscope>
+                                <div class="nav-tools-list--vertical__item" data-toggle="{{this.name}}">
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href=""></a>
+                                    </li>
+                                    {{!-- {{#each menu}}
+                                    <li class="nav-list__item" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                        <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                                    </li>
+                                    {{/each}} --}}
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/neumaticos">Neumaticos</a>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="">
+                                        </div>
+                                        <div class="subcategorias invisible">
+                                            <ul>
+                                                <li><a href="/listado/accesorios-vehiculos/yeada">Primer Precio</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/pirelli">Pirelli</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/fate">Fate</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/bridgestone">Bridgestone</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/firestone">Firestone</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/michelin">Michelin</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/bfgoodrich">BFGoodrich</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/llantas/llantas-autos-camionetas/">Llantas</a>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="">
+                                        </div>
+                                        <div class="subcategorias invisible">
+                                            <ul>
+                                                <li><a href="/13in">Llantas 13'</a></li>
+                                                <li><a href="/14in">Llantas 14'</a></li>
+                                                <li><a href="/15in">Llantas 15'</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/">Accesorios</a>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="">
+                                        </div>
+                                        <div class="subcategorias subcategoria-deporte invisible">
+                                            <ul>
+                                                <li>
+                                                    <a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/">Interior</a>
+                                                    <ul>
+                                                        <li><a href="/12v">12V</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/alfombras">Alfombras</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/cubre-volantes/">Cubre Volantes</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/fundas-asientos/">Fundas y Cubre Asientos</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/cortinas-parasoles/">Parasoles</a></li>
+                                                        <li><a href="/polarizado">Polarizados</a></li>
+                                                    </ul>                                                    
+                                                </li>
+                                                <li>
+                                                    <a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-exterior/">Exterior</a>
+                                                    <ul>
+                                                        <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-exterior/escobillas">Escobillas</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/reflectivos">Reflectivos</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/seguridad-vehicular/">Seguridad</a></li>
+                                                        <li><a href="/listado/accesorios-vehiculos/tazas">Tazas</a></li>
+                                                    </ul>                                                    
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/lubricantes-fluidos/">Aceites y Filtros</a>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="">
+                                        </div>
+                                        <div class="subcategorias invisible">
+                                            <ul>
+                                                <li><a href="/listado/accesorios-vehiculos/lubricantes-fluidos/autos-camionetas/aceites/">Aceites</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/filtros/">Filtros</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/lubricantes-fluidos/autos-camionetas/aceites/_BRAND_13336125">Aditivos</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/bateria">Baterías y Accesorios</a>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/audio-vehiculos/">Car Audio</a>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/herramientas-vehiculos/">Herramientas</a>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/">Repuestos</a>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="">
+                                        </div>
+                                        <div class="subcategorias invisible">
+                                            <ul>
+                                                <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/suspension-direccion/amortiguadores/">Amortiguadores</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/frenos/">Frenos</a></li>
+                                                <li><a href="/iluminacion">Lámparas</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <div class="categoria">
+                                            <a href="/motos">Motos</a>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="">
+                                        </div>
+                                        <div class="subcategorias invisible">
+                                            <ul>
+                                                <li><a href="/listado/accesorios-vehiculos/acc-motos-cuatriciclos/">Accesorios de moto</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/acc-motos-cuatriciclos/cascos/">Cascos de moto</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/neumaticos/cubiertas-motos/">Cubiertas de moto</a></li>
+                                                <li><a href="/listado/accesorios-vehiculos/acc-motos-cuatriciclos/fundas/motos/">Cubre motos</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/listado/bebes/">Bebé</a>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text how-buy__button"
+                                        data-js="how-buy__button" itemprop="name"
+                                        tools-custom-data-emitter="how-buy__button">
+                                        <a href="{{linkToHowBuy.href}}">{{linkToHowBuy.label}}</a>
+                                    </li>
+                                    <!-- /.nav-tools-list--vertical__category header--custom-text -->
+                                    <div class="target-subCategory-{{@index}}">
+                                        <div class="nav-tools-list--vertical__subitem">
+                                            <li class="">
+                                                <a href="{{this.url}}">SubCategoria</a>
+                                                <label for="attr-{{@../index}}-{{@index}}"
+                                                    data-js="attribute-{{@../index}}" class="toggle-menu attribute">
+                                                    <span class="nav-header__toggle"></span>
+                                                    <span class="nav-header__toggle"></span>
+                                                </label>
+                                                <!-- /.attr-x -->
+                                            </li>
+                                            <!-- /.header--custom-text -->
+                                            <div
+                                                class="nav-tools-list--vertical__attr-container target-attribute-{{@../index}}">
+                                                <li class="nav-tools-list--vertical__attribute">
+                                                    <a href="{{this.url}}">{{this.name}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Desktop navigation menu -->
+                    <div class="nav-tools-header__categories">
+                        <ul itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav-list nav-list--horizontal   header--custom-text header--custom-border" id="nav-list">
+                            {{#each menu}}
+                                <li class="nav-list__item" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                    <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                                </li>
+                            {{/each}}
+
+                            <li class="nav-list__item nav-list__item--more" style="visibility: visible;">
+                                <div class="nav-list__link">{{i18n.moreCategories}}</div>
+                                <ul class="nav-list nav-list--dropdown  " id="more-dropdown">
+                                    {{#each menu}}
+                                    <li class="nav-list__item header--custom-text" itemprop="name" tools-custom-data-receiver="{{@index}}">
+                                        <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                                        <span> <hr/> </span>
+
+                                        <ul class="nav-list__item-subcategory">
+                                            {{#each this.nodes}}
+                                            <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                <a class="text-bold" href="{{this.url}}">{{this.name}}</a>
+                                            </li>
+                                            <ul class="nav-list__item-subcategory">
+                                                {{#each this.nodes}}
+                                                <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                    <a class="text-normal" href="{{this.url}}">{{this.name}}</a>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                            {{/each}}
+                                        </ul>
+                                        <!-- /.nav-list__item-subcategory -->
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="subcategorires  ">
+                            {{#each menu}} {{#if this.nodes}}
+                            <div class="nav-tools-list--vertical__subitem-container" data-toggle="{{@index}}">
+                                <ul class="grid-list">
+                                    {{#each this.nodes}}
+                                    <li class="nav-tools-list--vertical__subitem header--custom-text">
+                                        <a href="{{this.url}}" class="">{{this.name}}</a>
+                                        <ul class="nav-tools-list--vertical__attribute_container">
+                                            {{#each this.nodes}}
+                                            <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                <a href="{{this.url}}" class="">{{this.name}}</a>
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}} {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-desktop">
+            <ul class="dropdown">
+                <li><a href="/listado/accesorios-vehiculos/neumaticos">Neumaticos</a>
+                    <ul>
+                        <li><a href="/listado/accesorios-vehiculos/yeada">Primer Precio</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/pirelli">Pirelli</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/fate">Fate</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/bridgestone">Bridgestone</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/firestone">Firestone</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/michelin">Michelin</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/bfgoodrich">BFGoodrich</a></li>
+                    </ul>
+                </li>
+                <li><a href="/listado/accesorios-vehiculos/llantas/llantas-autos-camionetas/">Llantas</a>
+                    <ul>
+                        <li><a href="/13in">Llantas 13'</a></li>
+                        <li><a href="/14in">Llantas 14'</a></li>
+                        <li><a href="/15in">Llantas 15'</a></li>
+                    </ul>
+                </li>
+                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/">Accesorios</a>
+                    <ul>
+                        <li>
+                            <a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/">Interior<img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="angle-img"></a>
+                            <ul>
+                                <li><a href="/12v">12V</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/alfombras">Alfombras</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/cubre-volantes/">Cubre Volantes</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/fundas-asientos/">Fundas y Cubre Asientos</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-interior/cortinas-parasoles/">Parasoles</a></li>
+                                <li><a href="/polarizado">Polarizados</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-exterior/">Exterior<img src="https://cdn-icons-png.flaticon.com/512/25/25638.png" alt="angle-img"></a>
+                            <ul>
+                                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-exterior/escobillas">Escobillas</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/reflectivos">Reflectivos</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/seguridad-vehicular/">Seguridad</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/tazas">Tazas</a></li>
+                                <li><a href="/listado/accesorios-vehiculos/accesorios-auto-camioneta/accesorios-exterior/portaequipajes/">Portaequipaje</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/limpieza">Limpieza</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/listado/accesorios-vehiculos/lubricantes-fluidos/">Aceites y Filtros</a>
+                    <ul>
+                        <li><a href="/listado/accesorios-vehiculos/lubricantes-fluidos/autos-camionetas/aceites/">Aceites</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/filtros/">Filtros</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/lubricantes-fluidos/autos-camionetas/aceites/_BRAND_13336125">Aditivos</a></li>
+                    </ul>
+                </li>
+                <li><a href="/bateria">Baterías y Accesorios</a></li>
+                <li><a href="/listado/accesorios-vehiculos/audio-vehiculos/">Car Audio</a></li>
+                <li><a href="/listado/accesorios-vehiculos/herramientas-vehiculos/">Herramientas</a></li>
+                <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/">Repuestos</a>
+                    <ul>
+                        <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/suspension-direccion/amortiguadores/">Amortiguadores</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/repuestos-autos-camionetas/frenos/">Frenos</a></li>
+                        <li><a href="/iluminacion">Lámparas</a></li>
+                    </ul>
+                </li>
+                <li><a href="/motos">Motos</a>
+                    <ul>
+                        <li><a href="/listado/accesorios-vehiculos/acc-motos-cuatriciclos/">Accesorios de moto</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/acc-motos-cuatriciclos/cascos/">Cascos de moto</a></li>
+                        <li><a href="/accesorios-vehiculos/neumaticos/cubiertas-motos/">Cubiertas de moto</a></li>
+                        <li><a href="/listado/accesorios-vehiculos/acc-motos-cuatriciclos/fundas/motos/">Cubre motos</a></li>
+                    </ul>
+                </li>
+                <li><a href="/listado/bebes/">Bebé</a></li>
+            </ul>
+        </div>
+    </header>
+</div>

@@ -1,0 +1,37 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node ./lib/warmup && npm run start",
+    "test": "npm run test:unit",
+    "test:unit": "NODE_ENV=test istanbul cover _mocha -- tests/**/*.spec.js --exit",
+    "start": "node index.js",
+    "start-dev": "nodemon ./index.js",
+    "debug": "nodemon --debug=5005 ./index.js",
+    "create-zip": "node ./lib/publish"
+  },
+  "author": "",
+  "license": "private",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "chokidar": "^3.0.2",
+    "commander": "^2.20.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.1.2",
+    "newrelic": "^4.8.0",
+    "node-sass": "^4.12.0",
+    "opn": "^6.0.0",
+    "ora": "^3.4.0",
+    "recursive-readdir": "^2.2.2",
+    "uuid": "^3.3.2",
+    "ws": "^7.1.1"
+  },
+  "devDependencies": {
+    "archiver": "^4.0.2",
+    "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.19.1",
+    "supertest": "^3.1.0"
+  }
+}

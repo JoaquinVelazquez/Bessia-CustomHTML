@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Navigations Test</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style data-head-react="true">@font-face{font-family:'Proxima Nova';font-weight:300;font-display:swap;font-style:normal;src:url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2) format("woff2"),url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff) format("woff"),url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.ttf) format("truetype")}@font-face{font-family:'Proxima Nova';font-weight:400;font-display:swap;font-style:normal;src:url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2) format("woff2"),url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff) format("woff"),url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.ttf) format("truetype")}@font-face{font-family:'Proxima Nova';font-weight:600;font-display:swap;font-style:normal;src:url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2) format("woff2"),url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff) format("woff"),url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.ttf) format("truetype")}</style>
+    <link rel="stylesheet" href="https://http2.mlstatic.com/ui/navigation/4.4.4/mercadoshops/navigation.css">
+    <link href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2" type="font/woff2">
+    <link href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2" type="font/woff2">
+    <link href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2" type="font/woff2">
+    <script id="#hotreload">
+        function init_autoupdate() {
+            console.log('initializing hot reload');
+            if (!window.__autoupdate) {
+                window.__autoupdate = {};
+                window.__autoupdate.socket = new WebSocket(window.location.href.replace(/(^http|^https)/, 'ws'));
+                const parser = new DOMParser();
+                window.__autoupdate.socket.onopen = () => console.log('hot reloading ready');
+
+                window.__autoupdate.socket.onmessage = async message => {
+                    window.location.reload()
+                };
+
+                window.__autoupdate.socket.onclose = e => {
+                    console.log('Socket is closed. Reconnect will be attempted in 5 second.', e.reason);
+                    window.__autoupdate = null;
+                    setTimeout(() => init_autoupdate(), 5000);
+                };
+
+                window.__autoupdate.socket.onerror = err => {
+                    console.error('Error: ', err.message, 'Closing socket');
+                window.__autoupdate.socket.close();
+                };
+            }
+        }
+
+        init_autoupdate();
+    </script>
+</head>
+
+<body style="min-height: 100vh;">
+    {{{body}}}
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<div class="buscador-contenedor">
+  <div class="header">
+    <h2>Buscá Tu Neumatico</h2>
+    <div class="tooltip-contenedor">
+      <p>¿Como saber las medidas de tus neumáticos?</p>
+      <span>
+        ?
+        <div class="medidas">
+          <img src="https://iili.io/H9nBbXS.jpg" alt="" />
+        </div>
+      </span>
+    </div>
+
+  </div>
+  <form action="" method="post" id="neumaticoForm">
+    <img src="https://iili.io/H9nfSvR.png" alt="bessia-logo" />
+    <div class="inputs">
+      <select name="ancho" id="ancho">
+        <option disabled selected value="NULL">Seleccione el ancho</option>
+        <option value="155mm">155</option>
+        <option value="165mm">165</option>
+        <option value="175mm">175</option>
+        <option value="180mm">180</option>
+        <option value="185mm">185</option>
+        <option value="195mm">195</option>
+        <option value="205mm">205</option>
+        <option value="215mm">215</option>
+        <option value="225mm">225</option>
+        <option value="235mm">235</option>
+        <option value="245mm">245</option>
+        <option value="255mm">255</option>
+        <option value="265mm">265</option>
+        <option value="275mm">275</option>
+        <option value="285mm">285</option>
+      </select>
+      <select name="perfil" id="perfil">
+        <option disabled selected value="NULL">Seleccione el perfil</option>
+        <option value="35">35</option>
+        <option value="40">40</option>
+        <option value="45">45</option>
+        <option value="50">50</option>
+        <option value="55">55</option>
+        <option value="65">65</option>
+        <option value="70">70</option>
+        <option value="75">75</option>
+        <option value="80">80</option>
+      </select>
+      <select name="diametro" id="diametro">
+        <option disabled selected value="NULL">
+          Seleccione el diámetro
+        </option>
+        <option value='12"'>12</option>
+        <option value='13"'>13</option>
+        <option value='14"'>14</option>
+        <option value='15"'>15</option>
+        <option value='16"'>16</option>
+        <option value='17"'>17</option>
+        <option value='18"'>18</option>
+        <option value='19"'>19</option>
+        <option value='20"'>20</option>
+        <option value='21"'>21</option>
+        <option value='22"'>22</option>
+        <option value='23"'>23</option>
+      </select>
+    </div>
+    <div class="buscar">
+      <input type="button" value="Buscar" id="neumaticosBtn" />
+    </div>
+  </form>
+</div>
+
+<footer class="nav-tools-footer header--custom-background">
+  <section class="nav-tools-footer__bound header--custom-background">
+    <section class="nav-tools-footer__top">
+      <div class="nav-tools-footer__info header--custom-text">
+        <div class="nav-tools-footer__logo">
+          {{#if logo}}
+            <img src="{{logo}}" alt="{{name}}" />
+          {{else}}
+            <span class="header--custom-text">
+              {{name}}
+            </span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="contenedor-categorias">
+        <p>Categorías</p>
+        <a href="/nuestros-productos">
+          Tienda
+        </a>
+        <a href="/p/como-comprar">
+          FAQ
+        </a>
+      </div>
+
+      <div class="contenedor-contacto">
+        <p>Contacto</p>
+
+        {{#if showContact}}
+          {{#if showPhone}}
+            <a class="header--custom-text">{{phone.formatted}}</a>
+          {{/if}}
+          {{#if showEmail}}
+            <a class="header--custom-text" href="mailto:{{email}}">{{email}}</a>
+          {{/if}}
+          {{#if address}}
+            {{#with address}}
+              <a href="#">
+                <span
+                  itemprop="streetAddress"
+                  class="header--custom-text"
+                >{{address}}</span>
+                <br />
+                <span
+                  itemprop="addressLocality"
+                  class="header--custom-text"
+                >{{city}}</span>
+                <span
+                  itemprop="addressRegion"
+                  class="header--custom-text"
+                >{{state}}</span>
+              </a>
+            {{/with}}
+          {{/if}}
+        {{/if}}
+      </div>
+
+      <div class="contenedor-redes">
+        <p>Redes Sociales</p>
+
+        <div class="redes">
+          <a target="_blank" href="https://www.facebook.com/bessiacenter"><img
+              src="https://cdn-icons-png.flaticon.com/512/733/733603.png"
+              alt="icon-facebook"
+            /></a>
+          <a target="_blank" href="https://www.instagram.com/bessiacenter/"><img
+              src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+              alt="icon-instagram"
+            /></a>
+          <a
+            target="_blank"
+            href="https://www.youtube.com/channel/UCQIiMthAI3Um83CY_gzkq8Q"
+          ><img
+              src="https://cdn-icons-png.flaticon.com/512/717/717426.png"
+              alt="icon-youtube"
+            /></a>
+        </div>
+      </div>
+    </section>
+    <section
+      class="nav-tools-footer__bottom header--custom-border header--custom-text"
+    >
+      <div>
+        <div class="nav-footer-about">
+          <a
+            href="{{{linkToMShopsLandingPage}}}"
+            target="_blank"
+            class="header--custom-text"
+          >{{i18n.powered_by}}</a>
+          {{#if linkToLegalNotices}}
+            <a
+              href="{{linkToLegalNotices.href}}"
+              class="header--custom-text"
+            >{{linkToLegalNotices.label}}</a>
+          {{/if}}
+          {{#if linkToLGPD}}
+            <a
+              href="{{linkToLGPD.href}}"
+              class="header--custom-text"
+            >{{linkToLGPD.label}}</a>
+          {{/if}}
+        </div>
+
+        {{#if showBusinessData}}
+          {{#with fiscalData}}
+            <div class="nav-footer-fiscal-data">
+              <p class="nav-footer-fiscal-data__name">{{legal_name}}</p>
+              <p class="nav-footer-fiscal-data__id">{{legal_doc}}</p>
+            </div>
+          {{/with}}
+        {{/if}}
+      </div>
+      {{#if showQrData}}
+        {{#with fiscalData}}
+          <a href={{qr_link}} target="_F960AFIPInfo">
+            <img class="nav-footer-afip-img" src={{qr_img}} alt="Data fiscal" />
+          </a>
+        {{/with}}
+      {{/if}}
+    </section>
+  </section>
+</footer>

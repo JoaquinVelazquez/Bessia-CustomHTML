@@ -1,0 +1,8 @@
+<div class="flash-component header--custom-secondary-background header--custom-text">
+    <h3 class="flash-component__text header--custom-secondary-text">
+        {{{flash.message}}}
+    </h3>
+    {{#if flash.action}}
+        <a class="flash-component__link" href={{flash.action.href}}>{{flash.action.message}}</a>
+    {{/if}}
+</div>

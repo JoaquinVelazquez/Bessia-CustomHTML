@@ -1,0 +1,4 @@
+<svg id="cart-badge" class="header--custom-svg cart-badge {{#if cart.showBadge}}{{cart.showBadge}}{{else}}${showCartBadge}{{/if}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path class="header--custom-svg" d="M 8 0 A 8 8 0 1 0 8 16 A 8 8 0 1 0 8 0 Z M 8 1.5 A 6.5 6.5 0 1 1 8 14.5 A 6.5 6.5 0 1 1 8 1.5 Z" />
+  <text x="8" y="11.2" text-anchor="middle" font-size="10">{{#if cart.quantity}}{{cart.quantity}}{{else}}${cartBadgeQuantity}{{/if}}</text>
+</svg>

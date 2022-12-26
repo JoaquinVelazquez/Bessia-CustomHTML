@@ -1,0 +1,22 @@
+<div class="nav-header__disclaimer">
+  <div
+    class="nav-cookie-disclaimer"
+    data-js="cookieDisclaimerBanner"
+    role="region"
+  >
+    <p class="nav-cookie-disclaimer__text">
+      {{cookieDisclaimer.text}}&nbsp;
+      <a data-js="cookieDisclaimerMoreInfo" class="nav-cookie-disclaimer__link" rel="noopener noreferrer" target="_blank" href={{cookieDisclaimer.linkToPrivacy.href}}>
+        {{cookieDisclaimer.linkToPrivacy.label}}
+      </a>
+    </p>
+    <button
+      class="nav-cookie-disclaimer__button"
+      data-js="cookieDisclaimerButton"
+      type="button"
+      site-id={{cookieDisclaimer.platform}}
+    >
+      {{cookieDisclaimer.button}}
+    </button>
+  </div>
+</div>
