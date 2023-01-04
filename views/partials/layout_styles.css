@@ -3165,6 +3165,7 @@ gap: 20px;
 .buscador-contenedor .header .medidas img {
   width: 200px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 1000;
 }
 
 @media (min-width: 768px) {
