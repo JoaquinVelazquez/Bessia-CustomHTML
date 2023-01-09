@@ -2828,6 +2828,9 @@ body {
   color: #ffffff !important;
 }
 
+.ui-button {
+  color: white!important;
+}
 /* HEADER */
 
 header .nav-tools-header__top {
