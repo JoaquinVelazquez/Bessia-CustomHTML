@@ -202,9 +202,9 @@ const dataMock = {
       },
     ],
     address: {
-      address: 'Test Address 123',
-      city: 'Test city',
-      state: 'Test state'
+      address: '',
+      city: '',
+      state: ''
     },
     i18n: {
       contact: 'Test contact text',
