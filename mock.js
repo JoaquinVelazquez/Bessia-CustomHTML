@@ -147,7 +147,7 @@ const menu = [
 
 const dataMock = {
   header: {
-    logo: 'https://iili.io/DwxDZX.png',
+    logo: '',
     name: 'Test Shop',
     home_url: '',
     flash: {
@@ -174,7 +174,7 @@ const dataMock = {
     menu,
   },
   footer: {
-    logo: 'https://iili.io/DwxDZX.png',
+    logo: '',
     name: 'Test Shop',
     logoCaption: '<p>Custom text message</p>',
     mobileExtraClass: 'nav-bounds-large', // optional class, only for mobile
